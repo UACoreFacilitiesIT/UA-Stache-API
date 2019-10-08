@@ -10,15 +10,15 @@ def readme(filename):
 
 setup(
     name="ua_stache_api",
-    version="1.0.0",
+    version="2.0.0",
     packages=find_packages(),
     author="Stephen Stern, Rafael Lopez",
     author_email="sterns1@email.arizona.edu",
     description=(
         "Allows the caller to easily get 'secret' information from stache"
         " entries at [https://stache.arizona.edu]."),
-    long_description=readme('README.md'),
-    long_description_content_type='text/markdown',
-    url='https://github.com/UACoreFacilitiesIT/UA-Stache-API',
+    long_description=readme("README.md"),
+    long_description_content_type="text/markdown",
+    url="https://github.com/UACoreFacilitiesIT/UA-Stache-API",
     license="MIT"
 )
