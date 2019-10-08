@@ -17,8 +17,8 @@ setup(
     description=(
         "Allows the caller to easily get 'secret' information from stache"
         " entries at [https://stache.arizona.edu]."),
-    long_description=readme('README.md'),
-    long_description_content_type='text/markdown',
-    url='https://github.com/UACoreFacilitiesIT/UA-Stache-API',
+    long_description=readme("README.md"),
+    long_description_content_type="text/markdown",
+    url="https://github.com/UACoreFacilitiesIT/UA-Stache-API",
     license="MIT"
 )

@@ -13,7 +13,9 @@ class TestUAStacheApi(TestCase):
             "api/v1/item/read/fa4004d4dd816e72fbed07ca330ecfc7")
 
     def test_get_entry(self):
-        key, url = ua_stache_api.get_entry("test_stache_token.json")
+        with open("test_stache_token.json") as file:
+            contents = file.read()
+        key, url = ua_stache_api.get_entry(contents)
         assert key == self.api_key
         assert url == self.url
 
