@@ -2,7 +2,6 @@
 
 import requests
 import json
-import pdb
 
 
 def auth(key, url, cred_type=None, get_all=False):
@@ -71,6 +70,19 @@ def get_entry(file_contents):
 
 
 def post(key, url, contents):
+    """Updates contents of an entry in Stache.
+
+    Arguments:
+        key: The stache X-STACHE-KEY.
+        url: The stache endpoint.
+        contents: The body of the post to update stache entry with.
+
+    Returns:
+        Response to post message.
+    Requirements:
+        Url must be full endpoint, including https://stache...
+        Contents must be a dictionary, containing at least a 'secret' key.
+    """
     contents["secret"] = json.dumps(contents["secret"])
     response = requests.post(url, json=contents, headers=key)
     response.raise_for_status()
