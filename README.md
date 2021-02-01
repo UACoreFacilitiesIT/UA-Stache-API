@@ -27,7 +27,7 @@ pip install --user ua-stache-api
 
 ## Tests
 cd ./ua_stache_api/tests
-nosetests ./test_ua_stache_api.py
+python -m nose ./test_ua_stache_api.py
 
 ## Credits
 [sterns1](https://github.com/sterns1)
