@@ -2,9 +2,10 @@
 
 import requests
 import json
+import pdb
 
 
-def auth(key, url, cred_type=None):
+def auth(key, url, cred_type=None, get_all=False):
     """Takes api keys and returns the desired from the stache entry's secret.
 
     Arguments:
@@ -24,7 +25,13 @@ def auth(key, url, cred_type=None):
     response.raise_for_status()
     response = response.json()
 
-    result = json.loads(response["secret"])
+    secret = json.loads(response["secret"])
+
+    if get_all:
+        result = response
+        result["secret"] = secret
+    else:
+        result = secret
 
     if cred_type:
         for key in cred_type.split('/'):
@@ -48,11 +55,24 @@ def get_entry(file_contents):
         returns (key, url) of the api entry as a tuple.
     """
     creds = json.loads(file_contents)
-    # Get key and api endpoint for url.
-    read_key = creds["X-STACHE-READ-KEY"]
-    end_point = creds["endpoint"]
+
+    # Get key, check for old version of json's first.
+    key = creds.get("X-STACHE-READ-KEY")
+    if not key:
+        key = creds["X-STACHE-KEY"]
+
+    # Grab endpoint.    
+    endpoint = creds["endpoint"]
 
     # Format for request.
-    key = {"X-STACHE-READ-KEY": read_key}
-    url = f"https://stache.arizona.edu{end_point}"
+    key = {"X-STACHE-KEY": key}
+    url = f"https://stache.arizona.edu{endpoint}"
     return key, url
+
+
+def post(key, url, contents):
+    contents["secret"] = json.dumps(contents["secret"])
+    response = requests.post(url, json=contents, headers=key)
+    response.raise_for_status()
+    contents["secret"] = json.loads(contents["secret"])
+    return response
