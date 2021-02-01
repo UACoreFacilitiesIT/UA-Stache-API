@@ -20,5 +20,6 @@ setup(
     long_description=readme("README.md"),
     long_description_content_type="text/markdown",
     url="https://github.com/UACoreFacilitiesIT/UA-Stache-API",
-    license="MIT"
+    license="MIT",
+    install_requires=["requests"],
 )
