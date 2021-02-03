@@ -10,7 +10,7 @@ def readme(filename):
 
 setup(
     name="ua_stache_api",
-    version="2.1.0",
+    version="2.1.1",
     packages=find_packages(),
     author="Stephen Stern, Rafael Lopez",
     author_email="sterns1@email.arizona.edu",
