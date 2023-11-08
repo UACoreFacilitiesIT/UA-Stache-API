@@ -1,12 +1,13 @@
 [tool.poetry]
 name = "ua-stache-api"
-version = "0.1.0"
+version = "2.1.0"
 description = ""
 authors = [""]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+requests = "^2.31.0"
 
 
 [build-system]
