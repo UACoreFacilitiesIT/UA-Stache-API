@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "ua-stache-api"
+version = "2.1.1"
+description = "Allows the caller to easily get \"secret\" information from stache entries at [https://stache.arizona.edu]."
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
